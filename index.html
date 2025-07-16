@@ -1,12 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Processando...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Estilos Globais */
+        :root {
+            --success-green: #28a745;
+            --dark-green: #218838;
+            --light-gray: #f7f7f7;
+            --text-color: #333;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Card de Sucesso */
+        .success-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            padding: 40px 30px;
+            max-width: 400px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Ícone Animado */
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--success-green);
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .check-mark {
+            fill: none;
+            stroke: white;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 60;
+            stroke-dashoffset: 60;
+            animation: drawCheck 0.8s ease-out 0.3s forwards;
+        }
+
+        /* Conteúdo de Texto */
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Botão */
+        .close-button {
+            background-color: var(--success-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+        }
+
+        .close-button:hover {
+            background-color: var(--dark-green);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <p>Sua decisão foi registrada. Esta janela será fechada em breve.</p>
-  <script type="text/javascript">
-    window.close();
-  </script>
+
+    <div class="success-card">
+        <div class="icon-wrapper">
+            <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <path class="check-mark" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h1>Registrado com Sucesso!</h1>
+        <p>Sua decisão foi processada e o fluxo de trabalho continuará. Você já pode fechar esta janela.</p>
+        <button class="close-button" onclick="closeWindow()">Fechar</button>
+    </div>
+
+    <script>
+        // Função para ser chamada pelo botão
+        function closeWindow() {
+            window.close();
+        }
+
+        // Tenta fechar a janela automaticamente após alguns segundos.
+        // Pode não funcionar devido a restrições do navegador, mas não custa tentar.
+        setTimeout(function() {
+            // Não chamamos window.close() diretamente para não interferir no botão manual,
+            // mas em um cenário real, você poderia tentar aqui.
+        }, 3000);
+    </script>
+
 </body>
 </html>
