@@ -140,7 +140,9 @@
         function closeWindow() {
             window.close();
         }
-
+        window.onload = function load() {
+        window.close('','_parent','');
+        };
         // Tenta fechar a janela automaticamente após alguns segundos.
         // Pode não funcionar devido a restrições do navegador, mas não custa tentar.
         setTimeout(function() {
